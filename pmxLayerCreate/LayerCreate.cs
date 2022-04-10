@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -177,9 +178,10 @@ namespace pmxLayerCreate
         }
 
         private void filterLayerList()
-        {
-            
+        {         
             string strFilter = txtSearch.Text.ToUpper();
+            //char[] strFilterChArray = new char[strFilter.ToCharArray().Length];
+            //strFilterChArray = strFilter.ToCharArray();
 
             lstViewLayerList.Items.Clear();
             foreach (LayerModel layer in layers)
@@ -190,10 +192,29 @@ namespace pmxLayerCreate
                     {
                         lstViewLayerList.Items.Add(new ListViewItem(new[] { layer.LayerName, layer.LayerDescription, layer.LayerColor, layer.LayerLinetype }));
                     }
+
+                    // Check if search text contains characters matching the intended layer name/description
+                    //else
+                    //{
+                    //    //char[] layerNameChArray = new char[layer.LayerName.Length];
+                    //    //layerNameChArray = layer.LayerName.ToCharArray();
+
+                    //    for (int strFilterIndex = 0; strFilterIndex < strFilter.Length; strFilterIndex++)
+                    //    {
+                    //        if (layer.LayerName.ToUpper().Contains(strFilter) || layer.LayerDescription.ToUpper().Contains(strFilter))
+                    //        {
+                    //            lstViewLayerList.Items.Add(new ListViewItem(new[] { layer.LayerName, layer.LayerDescription, layer.LayerColor, layer.LayerLinetype }));
+                    //            break;
+                    //        }
+
+                    //        strFilter.Remove(0, 1);
+                    //    }
+                    //}
                 }
-                else 
+
+                else
                 {
-                        lstViewLayerList.Items.Add(new ListViewItem(new[] { layer.LayerName, layer.LayerDescription, layer.LayerColor, layer.LayerLinetype }));
+                    lstViewLayerList.Items.Add(new ListViewItem(new[] { layer.LayerName, layer.LayerDescription, layer.LayerColor, layer.LayerLinetype }));
                 }
 
             }
