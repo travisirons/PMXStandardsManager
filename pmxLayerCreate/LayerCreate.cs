@@ -40,6 +40,7 @@ namespace pmxLayerCreate
 
             // Display confirmation message
             // ToDo: Add label and diplay meessagee there.
+            lblResult.Text = lstViewLayerList.SelectedItems.Count.ToString() + " layers added to drawing.";
             MessageBox.Show(lstViewLayerList.SelectedItems.Count.ToString() + " layers added to drawing.");
 
         }
@@ -158,7 +159,7 @@ namespace pmxLayerCreate
             lstGroups.SelectedIndex = -1;
 
             // Re-enable change event
-            lstGroups.SelectedIndexChanged += new EventHandler(lstGroups_SelectedIndexChanged);
+            //lstGroups.SelectedIndexChanged += new EventHandler(lstGroups_SelectedIndexChanged);
         }
 
         private void loadLayerList()
