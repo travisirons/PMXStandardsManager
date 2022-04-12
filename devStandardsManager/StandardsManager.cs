@@ -36,7 +36,7 @@ namespace devStandardsManager
 
         private void StandardsManager_Load(object sender, EventArgs e)
         {
-            //ToDo: AcceptButton arg to switch to specific tab
+            //ToDo: Add command line arg to switch to specific tab
             tabStandards.SelectedIndex = 0;
         }
 
